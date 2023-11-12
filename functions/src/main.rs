@@ -1,19 +1,16 @@
 fn main() {
-
-    //print_labeled_measurement(5, 'h');
-    //five_plus_one();
-    //return_example();
-    //fizzbuzz();
-    //bool_comp();
-    //value_loop();
-    //labeled_loop();
-    //conditional_loop();
-    //collection_loop();
-    //concise_collection_loop();
-    //rev_countdown();
-    //temp_conversions();
-    nth_fibonacci_driver();
-
+    print_labeled_measurement(5, 'h');
+    five_plus_one();
+    return_example();
+    fizzbuzz();
+    bool_comp();
+    value_loop();
+    labeled_loop();
+    conditional_loop();
+    collection_loop();
+    concise_collection_loop();
+    rev_countdown();
+    temp_conversions();
 }
 
 // Outputs value of int passed in
