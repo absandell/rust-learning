@@ -1,8 +1,8 @@
 use std::time::{Duration, SystemTime};
 
 fn main() {
-    let n = 40;
-    let reps = 1;
+    let n = 90;
+    let reps = ;
 
     let mut results: Vec<u128> = Vec::with_capacity(reps);
     let mut i = 0;
@@ -44,7 +44,7 @@ fn main() {
     while i < reps {
         if i == 0{
             let now = SystemTime::now();
-            result = nth_fibonacci_recursive(n);
+            //result = nth_fibonacci_recursive(n);
             match now.elapsed() {
                 Ok(elapsed) => {
                     results.push(elapsed.as_micros());
@@ -55,7 +55,7 @@ fn main() {
             }
         }else {
             let now = SystemTime::now();
-            nth_fibonacci_recursive(n);
+            //nth_fibonacci_recursive(n);
             match now.elapsed() {
                 Ok(elapsed) => {
                     results.push(elapsed.as_micros());
