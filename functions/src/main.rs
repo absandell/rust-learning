@@ -1,11 +1,18 @@
 fn main() {
 
-    print_labeled_measurement(5, 'h');
-    five_plus_one();
-    return_example();
-    fizzbuzz();
-    bool_comp();
-    value_loop();
+    //print_labeled_measurement(5, 'h');
+    //five_plus_one();
+    //return_example();
+    //fizzbuzz();
+    //bool_comp();
+    //value_loop();
+    //labeled_loop();
+    //conditional_loop();
+    //collection_loop();
+    //concise_collection_loop();
+    //rev_countdown();
+    //temp_conversions();
+    nth_fibonacci_driver();
 
 }
 
@@ -72,4 +79,78 @@ fn value_loop() {
     };
 
     another_function(result);
+}
+
+fn labeled_loop() {
+    let mut count = 0;
+    'counting_up: loop {
+        println!("count = {count}");
+        let mut remaining = 10;
+
+        loop {
+            println!("remaining = {remaining}");
+            if remaining == 9 {
+                break;
+            }
+            if count == 2 {
+                break 'counting_up;
+            }
+            remaining -= 1;
+        }
+
+        count += 1;
+    }
+    println!("End count = {count}");
+}
+
+fn conditional_loop() {
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{number}\n");
+        number -= 1;
+    }
+
+    println!("LIFTOFF!!!");
+}
+
+fn collection_loop() {
+    let a = [10, 20, 30, 40, 50];
+    let mut index = 0;
+
+    while index < 5 {
+        println!("The value is: {}\n", a[index]);
+
+        index += 1;
+    }
+}
+
+fn concise_collection_loop() {
+    let a = [10, 20, 30, 40, 50];
+
+    for element in a {
+        println!("The value is: {element\n}");
+    }
+}
+
+fn rev_countdown() {
+    for number in (1..4).rev() {
+        println!("{number}!");
+    }
+    println!("LIFTOFF!!!\n");
+}
+
+fn temp_conversions() {
+    let f = 100.94;
+    let c = 38.3;
+    println!("{} degrees Fahrenheit is {} degrees Celsisus\n", f, f_to_c(f));
+    println!("{} degrees Celsius is {} degrees Fahrenheit\n", c, c_to_f(c));
+}
+
+fn f_to_c(f: f64) -> f64 {
+    (f - 32.0) * (5.0/9.0)
+}
+
+fn c_to_f(c: f64) -> f64 {
+    c * (9.0/5.0) + 32.0
 }
