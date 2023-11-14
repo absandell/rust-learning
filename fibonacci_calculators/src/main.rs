@@ -2,7 +2,7 @@ use std::time::{Duration, SystemTime};
 
 fn main() {
     let n = 90;
-    let reps = ;
+    let reps = 3;
 
     let mut results: Vec<u128> = Vec::with_capacity(reps);
     let mut i = 0;
