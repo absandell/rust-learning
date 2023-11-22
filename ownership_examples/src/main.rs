@@ -25,7 +25,7 @@ fn ex2()
 
 // EXAMPLE 3
 fn ex3(){
-    let s = String:from("hello"); // s comes into scope
+    let s = String::from("hello"); // s comes into scope
 
     takes_ownership(s); // s's value moves into the function...
                         // ... and so it is no longer valid here
@@ -37,7 +37,7 @@ fn ex3(){
 } // Here, x goes out of scope, then s. However, because s's value was moved, nothing special happens
 
 fn takes_ownership(some_string: String) { // some_string comes into scope
-    println!("{some_string");
+    println!("{some_string}");
 } // Here, some_string goes out of scope and `drop` is called. The backing memory is freed
 
 fn makes_copy(some_integer: i32) { // some_integer comes into scope
@@ -55,7 +55,7 @@ fn ex4(){
   // s1 goes out of scope and is dropped.
 
 fn gives_ownership() -> String { // gives_ownership will move its return value into the function that calls it
-    let some_string = String::from("yours"); // some_string comes into scope
+    let mut some_string = String::from("yours"); // some_string comes into scope
 
     some_string // some_string is returned and moves out to the calling functions
 }
@@ -89,11 +89,11 @@ fn calculate_length2(s: &String) -> usize {
 
 // Example 6
 fn ex6() {
-    let s = String::from("hello");
-    change(&s);
+    let mut s = String::from("hello");
+    change(&mut s);
 }
 
-fn change(some_string: &String) {
+fn change(some_string: &mut String) {
     some_string.push_str(", world"); // This will fail because we're trying to modify a borrowed value
                                      // References are static by default. We'll need to use &mut
 }
@@ -104,7 +104,7 @@ fn ex6_2() {
 
     let r1 = &mut s;
     let r2 = &mut s; // cannot reference value twice w/ mut
-    let r3 = &s // no issue
+    let r3 = &s; // no issue
 }
 
 fn change2(some_string: &mut String) {

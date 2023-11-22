@@ -11,7 +11,7 @@ fn ex1() {
     // we could meaningfuly use the value 5 with. Word is now totally invalid!
 }
 
-fn first_word(s: &String) -> {
+fn first_word(s: &String) -> usize {
     let bytes = s.as_bytes();
     for (i, &item) in bytes.iter().enumerate() {
         if item == b' ' {
