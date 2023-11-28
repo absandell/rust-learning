@@ -1,5 +1,5 @@
 [package]
-name = "vector_examples"
+name = "collections_examples"
 version = "0.1.0"
 edition = "2021"
 
