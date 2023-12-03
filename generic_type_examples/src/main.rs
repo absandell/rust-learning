@@ -9,18 +9,52 @@ struct MixedPoint<T, U> {
     y: U,
 }
 
+struct Point2<X1, Y1> {
+    x: X1,
+    y: Y1,
+}
+
+enum Option_i32 {
+    Some(i32),
+    None,
+}
+
+enum Option_f64 {
+    Some(f64),
+    None,
+}
+
 impl<T> Point<T> {
     fn x(&self) -> &T {
         &self.x
     }
 }
 
+impl Point<f32> {
+    fn distance_from_origin(&self) -> f32 {
+        self.x.powi(2) + self.y.powi(2).sqrt()
+    }
+}
+
+impl<X1, Y1> Point2<X1, Y1> {
+    fn mixup<X2, Y2>(
+        self, 
+        other: Point2<X2,Y2>,
+    ) -> Point2<X1,Y2> {
+        Point2 { 
+            x: self.x, 
+            y: other.y, 
+        }
+    }
+}
 /* DRIVER FUNCTIONS */
 fn main() {
     //ex1();
     //ex2();
     //ex3();
-    ex4();
+    //ex4();
+    //ex5();
+    ex6();
 }
 
 fn ex1() { // Lots of duplicate code
@@ -80,6 +114,20 @@ fn ex5() {
     let integer_and_foat = MixedPoint{x: 5, y: 4.0};
     println!("float.x = {}", float.x());
 }
+
+fn ex6() {
+    let p1 = Point2 {x: 5, y: 10.4};
+    let p2 = Point2 {x: "Hello", y: 'c'};
+    let p3 = p1.mixup(p2);
+    println!("p3.x = {}, p3.y = {}", p3.x, p3.y);
+}
+
+fn ex7() {
+    let integer = Option_i32::Some(5);
+    let foat = Option_f64::Some(5.0);
+}
+
+
 
 /* HELPER FUNCTIONS */
 
